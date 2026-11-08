@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Rapport des mandats</title>
+      <style>
+          body  { font-family: Arial, sans-serif; margin: 30px; }
+          h1    { color: #1f4e79; }
+          table { border-collapse: collapse; }
+          th, td { border: 1px solid #999; padding: 6px 12px; }
+          th    { background: #1f4e79; color: white; }
+          .recu    { color: #1e8449; font-weight: bold; }
+          .nonrecu { color: #c0392b; font-weight: bold; }
+          .total td { font-weight: bold; background: #dde7f2; }
+        </style>
+   </head>
+   <body>
+      <h1>Rapport des mandats</h1>
+      <table>
+         <tr>
+            <th>N° mandat</th>
+            <th>Date</th>
+            <th>Expéditeur</th>
+            <th>Destinataire</th>
+            <th>Montant (DH)</th>
+            <th>État</th>
+         </tr>
+         <tr>
+            <td>7124536</td>
+            <td>2007-01-01</td>
+            <td>youssef slimani<br>
+               CIN : A123245<br>
+               Ville : casa</td>
+            <td>laila hassouni<br>
+               CIN : P98654<br>
+               Ville : fes</td>
+            <td>1000</td>
+            <td><span class="recu">reçu</span></td>
+         </tr>
+         <tr>
+            <td>7124537</td>
+            <td>2007-01-01</td>
+            <td>mohamed alaoui<br>
+               CIN : M123245<br>
+               Ville : marrakech</td>
+            <td>imane alaoui<br>
+               CIN : M92654<br>
+               Ville : casa</td>
+            <td>3200</td>
+            <td><span class="nonrecu">non reçu</span></td>
+         </tr>
+         <tr>
+            <td>7124538</td>
+            <td>2007-01-02</td>
+            <td>slim qasmi<br>
+               CIN : H123222<br>
+               Ville : oujda</td>
+            <td>hassan qasmi<br>
+               CIN : B91154<br>
+               Ville : rabat</td>
+            <td>500</td>
+            <td><span class="recu">reçu</span></td>
+         </tr>
+         <tr class="total">
+            <td colspan="4">Total des montants</td>
+            <td>4700</td>
+            <td>3 mandats</td>
+         </tr>
+      </table>
+      <p>Mandats reçus : 2</p>
+   </body>
+</html>

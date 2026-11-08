@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- 1. Racine : une suite de mandats -->
+  <xs:element name="rapport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="mandat" type="TMandat" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+    <!-- Le numéro de mandat est unique -->
+    <xs:unique name="numUnique">
+      <xs:selector xpath="mandat"/>
+      <xs:field xpath="@num"/>
+    </xs:unique>
+  </xs:element>
+
+  <!-- 2. Un mandat : un expéditeur puis un destinataire -->
+  <xs:complexType name="TMandat">
+    <xs:sequence>
+      <xs:element name="expediteur"   type="TPersonne"/>
+      <xs:element name="destinataire" type="TPersonne"/>
+    </xs:sequence>
+    <xs:attribute name="num"     type="xs:positiveInteger" use="required"/>
+    <xs:attribute name="date"    type="xs:date"            use="required"/>
+    <xs:attribute name="montant" type="TMontant"           use="required"/>
+    <xs:attribute name="etat"    type="TEtat"              use="required"/>
+  </xs:complexType>
+
+  <!-- 3. Une personne (même structure pour l'expéditeur et le destinataire) -->
+  <xs:complexType name="TPersonne">
+    <xs:attribute name="cin"    type="TCin"      use="required"/>
+    <xs:attribute name="nom"    type="xs:string" use="required"/>
+    <xs:attribute name="prenom" type="xs:string" use="required"/>
+    <xs:attribute name="ville"  type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <!-- 4. Types simples -->
+  <xs:simpleType name="TMontant">
+    <xs:restriction base="xs:decimal">
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="TEtat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="reçu"/>
+      <xs:enumeration value="non reçu"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- CIN : 1 ou 2 lettres majuscules suivies de chiffres -->
+  <xs:simpleType name="TCin">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{1,2}[0-9]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

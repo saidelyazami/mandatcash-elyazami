@@ -1,0 +1,23 @@
+<!-- DTD : rapport de mandats -->
+<!ELEMENT rapport (mandat+)>
+
+<!ELEMENT mandat (expediteur, destinataire)>
+<!ATTLIST mandat
+    num     CDATA #REQUIRED
+    date    CDATA #REQUIRED
+    montant CDATA #REQUIRED
+    etat    CDATA #REQUIRED>
+
+<!ELEMENT expediteur EMPTY>
+<!ATTLIST expediteur
+    cin    CDATA #REQUIRED
+    nom    CDATA #REQUIRED
+    prenom CDATA #REQUIRED
+    ville  CDATA #REQUIRED>
+
+<!ELEMENT destinataire EMPTY>
+<!ATTLIST destinataire
+    cin    CDATA #REQUIRED
+    nom    CDATA #REQUIRED
+    prenom CDATA #REQUIRED
+    ville  CDATA #REQUIRED>
